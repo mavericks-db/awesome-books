@@ -13,10 +13,10 @@ function BookObject(title, author, id) {
 let i = 0;
 
 function displayFromArray() {
-  var retrivedData = localStorage.getItem("storedBooks");
-  var recoverdBooks = JSON.parse(retrivedData);
+  const retrivedData = localStorage.getItem('storedBooks');
+  const recoverdBooks = JSON.parse(retrivedData);
   collection.innerHTML = '';
-  if(recoverdBooks != ''){
+  if (recoverdBooks !== '') {
     books = recoverdBooks;
   }
   for (let j = 0; j < books.length; j += 1) {
@@ -31,12 +31,11 @@ function displayFromArray() {
     div.append(remBtn, line);
     collection.appendChild(div);
   }
-  
 }
 
 function removeBook(j) {
   books = books.filter((book) => book.bookId !== j);
-  localStorage.setItem("storedBooks", JSON.stringify(books));
+  localStorage.setItem('storedBooks', JSON.stringify(books));
   displayFromArray();
 }
 
@@ -56,7 +55,7 @@ addBtn.addEventListener('click', () => {
     const book = new BookObject(title.value, author.value, i);
     books.push(book);
     clearInputs();
-    localStorage.setItem("storedBooks", JSON.stringify(books));
+    localStorage.setItem('storedBooks', JSON.stringify(books));
     displayFromArray();
     i += 1;
   }
