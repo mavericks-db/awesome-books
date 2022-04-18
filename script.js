@@ -16,7 +16,7 @@ function displayFromArray() {
   const retrivedData = localStorage.getItem('storedBooks');
   const recoverdBooks = JSON.parse(retrivedData);
   collection.innerHTML = '';
-  if (recoverdBooks !== '') {
+  if (recoverdBooks !== null) {
     books = recoverdBooks;
   }
   for (let j = 0; j < books.length; j += 1) {
@@ -61,4 +61,6 @@ addBtn.addEventListener('click', () => {
   }
 });
 
-displayFromArray();
+if (books != null) {
+  displayFromArray();
+}
