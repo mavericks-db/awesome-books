@@ -12,6 +12,32 @@ function BookObject(title, author, id) {
 }
 let i = 0;
 
+function displayFromArray() {
+  collection.innerHTML = '';
+  for (let j = 0; j < books.length; j += 1) {
+    books[j].bookId = j;
+    const div = document.createElement('div');
+    div.innerHTML = `<p>${books[j].bookTitle}</p>
+    <p>${books[j].bookAuthor}</p>`;
+    const remBtn = document.createElement('button');
+    remBtn.textContent = 'Remove';
+    remBtn.setAttribute('onclick', `removeBook(${j})`);
+    const line = document.createElement('hr');
+    div.append(remBtn, line);
+    collection.appendChild(div);
+  }
+  localStorage.setItem(0, JSON.stringify(books));
+}
+
+function removeBook(j) {
+  books = books.filter((book) => book.bookId !== j);
+  displayFromArray();
+}
+
+if (1 === 10) {
+  removeBook(1);
+}
+
 function clearInputs() {
   title.value = '';
   author.value = '';
@@ -24,28 +50,7 @@ addBtn.addEventListener('click', () => {
     const book = new BookObject(title.value, author.value, i);
     books.push(book);
     clearInputs();
-    displayFromarray();
+    displayFromArray();
     i += 1;
   }
 });
-
-function displayFromarray(){
-  let length = books.length;
-  collection.innerHTML = "";
-  for (let j=0; j<length; j++){
-    books[j].bookId = j;
-    const div = document.createElement('div');
-    div.innerHTML = `<p>${books[j].bookTitle}</p>
-    <p>${books[j].bookAuthor}</p>
-    <button onclick="removeBook(${j})" >remove</button>`;
-    collection.appendChild(div);
-  }
-  localStorage.setItem(0, JSON.stringify(books));
-}
-
-function removeBook(j){
-  
-  books = books.filter(book => book.bookId != j);
-  console.log(j);
-  displayFromarray();
-}
