@@ -3,7 +3,7 @@ const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const collection = document.querySelector('.collection');
 
-const books = [];
+let books = [];
 
 function BookObject(title, author, id) {
   this.bookTitle = title;
@@ -17,30 +17,35 @@ function clearInputs() {
   author.value = '';
 }
 
-function displayBooks() {
-  const displayTitle = document.createElement('p');
-  const displayAuthor = document.createElement('p');
-  const line = document.createElement('hr');
-  const removeBtn = document.createElement('button');
-  removeBtn.setAttribute('id', i);
-  removeBtn.textContent = 'Remove';
-  removeBtn.addEventListener('click', () => {
-  });
-
-  displayTitle.textContent = books[i].bookTitle;
-  displayAuthor.textContent = books[i].bookAuthor;
-  collection.append(displayTitle, displayAuthor, removeBtn, line);
-}
-
 addBtn.addEventListener('click', () => {
   if (title.value === '' || author.value === '') {
     alert('Empty Input!');
   } else {
     const book = new BookObject(title.value, author.value, i);
     books.push(book);
-    localStorage.setItem(0, JSON.stringify(books));
-    displayBooks();
     clearInputs();
+    displayFromarray();
     i += 1;
   }
 });
+
+function displayFromarray(){
+  let length = books.length;
+  collection.innerHTML = "";
+  for (let j=0; j<length; j++){
+    books[j].bookId = j;
+    const div = document.createElement('div');
+    div.innerHTML = `<p>${books[j].bookTitle}</p>
+    <p>${books[j].bookAuthor}</p>
+    <button onclick="removeBook(${j})" >remove</button>`;
+    collection.appendChild(div);
+  }
+  localStorage.setItem(0, JSON.stringify(books));
+}
+
+function removeBook(j){
+  
+  books = books.filter(book => book.bookId != j);
+  console.log(j);
+  displayFromarray();
+}
