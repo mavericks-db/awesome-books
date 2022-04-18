@@ -1,60 +1,43 @@
-const addBtn = document.getElementById('addBtn');
-const title = document.getElementById('title');
-const author = document.getElementById('author');
+const addBtn = document.querySelector('#addBtn');
+const title = document.querySelector('#title');
+const author = document.querySelector('#author');
 const collection = document.querySelector('.collection');
 
-const bookEntry = {
-  title: '',
-  author: '',
-};
+let books = [];
+function bookObject(title, author, id) {
+    this.bookId = id;
+    this.bookTitle = title;
+    this.bookAuthor = author;
+}
+let i = 0;
 
-const inputTitle = [];
-const inputAuthor = [];
-const remBtn = [];
-let index = 0;
+addBtn.addEventListener("click", function () {
+    if (title.value == "" || author.value == "") {
+        alert("Empty Input!")
+    } else {
+        let book = new bookObject(title.value, author.value, i);
+        books.push(book);
+        localStorage.setItem(0, JSON.stringify(books));
+        displayBooks();
+        clearInputs();
+        i += 1;
+    }
+})
+
+function displayBooks() {
+    let displayTitle = document.createElement('p');
+    let displayAuthor = document.createElement('p');
+    let removeBtn = document.createElement('button');
+    removeBtn.addEventListener('click', removeBook(i));
+    let line = document.createElement('hr');
+    removeBtn.textContent = "Remove";
+    
+    displayTitle.textContent = books[i].bookTitle;
+    displayAuthor.textContent = books[i].bookAuthor;
+    collection.append(displayTitle, displayAuthor, removeBtn, line);
+}
 
 function clearInputs() {
-  title.value = '';
-  author.value = '';
+    title.value = '';
+    author.value = '';
 }
-
-function createEntry(index) {
-  inputTitle[index] = document.createElement('p');
-  inputAuthor[index] = document.createElement('p');
-
-  inputTitle[index].textContent = bookEntry.title;
-  inputAuthor[index].textContent = bookEntry.author;
-
-  remBtn[index] = document.createElement('button');
-  remBtn[index].textContent = 'Remove';
-  const x = document.createElement('hr');
-  collection.append(inputTitle[index], inputAuthor[index], remBtn[index], x);
-
-  remBtn[index].addEventListener('click', () => {
-    inputTitle[index].remove();
-    inputAuthor[index].remove();
-    remBtn[index].remove();
-    x.remove();
-  });
-
-  clearInputs();
-}
-
-function store() {
-  const val = JSON.stringify(bookEntry);
-  localStorage.setItem(index, val);
-  createEntry(index);
-  index += 1;
-}
-
-function storeTitle(e) {
-  bookEntry.title = e.target.value;
-}
-
-function storeAuthor(e) {
-  bookEntry.author = e.target.value;
-}
-
-addBtn.addEventListener('click', store);
-title.addEventListener('input', storeTitle);
-author.addEventListener('input', storeAuthor);
