@@ -5,33 +5,30 @@ const collection = document.querySelector('.collection');
 
 let books = [];
 
-class BookObj {
-  constructor(title, author, id) {
-    this.bookTitle = title;
-    this.bookAuthor = author;
-    this.bookId = id;
-  }
+function BookObject(title, author, id) {
+  this.bookTitle = title;
+  this.bookAuthor = author;
+  this.bookId = id;
 }
 let i = 0;
 
 function displayFromArray() {
-  const retrievedData = localStorage.getItem('storedBooks');
-  const recoveredBooks = JSON.parse(retrievedData);
+  const retrivedData = localStorage.getItem('storedBooks');
+  const recoverdBooks = JSON.parse(retrivedData);
   collection.innerHTML = '';
-  if (recoveredBooks !== null) {
-    books = recoveredBooks;
+  if (recoverdBooks !== null) {
+    books = recoverdBooks;
   }
   for (let j = 0; j < books.length; j += 1) {
     books[j].bookId = j;
     const div = document.createElement('div');
-    div.classList.add('flexContainer');
-    const infoDiv = document.createElement('p');
-    infoDiv.textContent = `"${books[j].bookTitle}" by ${books[j].bookAuthor}`;
-
+    div.innerHTML = `<p>${books[j].bookTitle}</p>
+    <p>${books[j].bookAuthor}</p>`;
     const remBtn = document.createElement('button');
     remBtn.textContent = 'Remove';
     remBtn.setAttribute('onclick', `removeBook(${j})`);
-    div.append(infoDiv, remBtn);
+    const line = document.createElement('hr');
+    div.append(remBtn, line);
     collection.appendChild(div);
   }
 }
@@ -55,7 +52,7 @@ addBtn.addEventListener('click', () => {
   if (title.value === '' || author.value === '') {
     alert('Empty Input!');
   } else {
-    const book = new BookObj(title.value, author.value, i);
+    const book = new BookObject(title.value, author.value, i);
     books.push(book);
     clearInputs();
     localStorage.setItem('storedBooks', JSON.stringify(books));
