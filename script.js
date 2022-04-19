@@ -24,7 +24,7 @@ function displayFromArray() {
   for (let j = 0; j < books.length; j += 1) {
     books[j].bookId = j;
     const div = document.createElement('div');
-    div.classList.add("flexContainer");
+    div.classList.add('flexContainer');
     const infoDiv = document.createElement('p');
     infoDiv.textContent = `"${books[j].bookTitle}" by ${books[j].bookAuthor}`;
 
