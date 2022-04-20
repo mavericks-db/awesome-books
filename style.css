@@ -41,9 +41,13 @@ nav ul li {
   margin-left: 1rem;
 }
 
-nav ul li a {
+.linkBtn {
   text-decoration: none;
   color: black;
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  cursor: pointer;
 }
 
 .date {
@@ -70,10 +74,17 @@ input {
 
 /* List Section */
 .list {
+  display: block;
   width: 90%;
   margin-left: 2rem;
   margin-right: 2rem;
   margin-top: 1rem;
+  text-align: center;
+}
+
+.list h2 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
   text-align: center;
 }
 
@@ -110,14 +121,54 @@ input {
 }
 
 /* Add New Section */
+.addNew {
+  display: none;
+  width: 40%;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.addNew h2 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
 .book-input {
-  width: 300px;
   display: flex;
   flex-direction: column;
 }
 
 #addBtn {
   margin-left: auto;
+}
+
+/* Contact Section */
+.contact {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: 1rem;
+}
+
+.contact h2 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.contact p,
+.contact ul {
+  text-align: left;
+  line-height: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.contact ul {
+  margin-left: 3rem;
 }
 
 /* Footer Section */
@@ -128,3 +179,5 @@ footer {
   position: fixed;
   bottom: 0;
 }
+
+

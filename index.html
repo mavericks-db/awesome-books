@@ -15,10 +15,12 @@
     <h1>Awesome Books</h1>
     <nav>
       <ul>
-        <li><a href="#list">List</a>
+        <li><button type="button" class="linkBtn" id="listBtn">List</button>
         </li>
-        <li><a href="#addNew">Add new</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li>|</li>
+        <li><button type="button" class="linkBtn" id="addNewBtn">Add new</button></li>
+        <li>|</li>
+        <li><button type="button" class="linkBtn" id="contactBtn">Contact</button></li>
       </ul>
     </nav>
   </header>
@@ -29,7 +31,7 @@
     </div>
   </section>
 
-  <section id="addNew">
+  <section class="addNew"  id="addNew">
     <h2>Add a new book</h2>
     <div class="book-input">
       <label for="title"></label>
@@ -38,6 +40,17 @@
       <input type="text" id="author" name="author" placeholder="Author">
       <button type="button" id="addBtn">Add</button>
     </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact information</h2>
+    <p>Do you have any questions or you just want to say "Hello"? \n You can reach out to us!
+      <ul>
+        <li>Our e-mail: mail@mail.com</li>
+        <li>Our phone number: 0043586534422</li>
+        <li>Our address: Streetname 22, 84503 City, Country</li>
+      </ul>
+    </p>
   </section>
   <footer>
     <p>Copyright ©️ 2022 Mavericks & Imran</p>

@@ -93,10 +93,40 @@ const setTime = () => {
   if (minutes.toString().length < 2) {
     minutes = `0${minutes}`;
   }
-
-  const time = `${month} ${day}th ${year}, ${hours}:${minutes}:${seconds}`;
+  const amPm = hours >= 12 ? 'pm' : 'am';
+  const time = `${month} ${day}th ${year}, ${hours}:${minutes}:${seconds} ${amPm}`;
   date.textContent = '';
   date.textContent = `${time}`;
 };
 
 setInterval(setTime, 1000);
+
+
+// Link Interaction
+const listBtn = document.querySelector('#listBtn');
+const addNewBtn = document.querySelector('#addNewBtn');
+const contactBtn = document.querySelector('#contactBtn');
+
+const listSec = document.querySelector('.list');
+const addNewSec = document.querySelector('.addNew');
+const contactSec = document.querySelector('.contact');
+
+
+listBtn.addEventListener('click', () => {
+  console.log('hi');
+  listSec.style.display = 'block';
+  addNewSec.style.display = 'none';
+  contactSec.style.display = 'none';
+});
+
+addNewBtn.addEventListener('click', () => {
+  listSec.style.display = 'none';
+  addNewSec.style.display = 'block';
+  contactSec.style.display = 'none';
+});
+
+contactBtn.addEventListener('click', () => {
+  listSec.style.display = 'none';
+  addNewSec.style.display = 'none';
+  contactSec.style.display = 'flex';
+});
