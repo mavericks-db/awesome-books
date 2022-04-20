@@ -11,20 +11,38 @@
 </head>
 
 <body>
-  <h1>All awesome books</h1>
-  <div class="collection">
-      
-  </div>
-  <div class="line"></div>
-  <h1>Add a new book</h1>
-  <div class="book-input">
-    <label for="title"></label>
-    <input type="text" id="title" name="title" placeholder="Title">
-    <label for="author"></label>
-    <input type="text" id="author" name="author" placeholder="Author">
-    <button type="button" id="addBtn">Add</button>
-  </div>
-  
+  <header>
+    <h1>Awesome Books</h1>
+    <nav>
+      <ul>
+        <li><a href="#list">List</a>
+        </li>
+        <li><a href="#addNew">Add new</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="date"></div>
+  <section class="list" id="list">
+    <h2>All awesome books</h2>
+    <div class="collection">
+    </div>
+  </section>
+
+  <section id="addNew">
+    <h2>Add a new book</h2>
+    <div class="book-input">
+      <label for="title"></label>
+      <input type="text" id="title" name="title" placeholder="Title">
+      <label for="author"></label>
+      <input type="text" id="author" name="author" placeholder="Author">
+      <button type="button" id="addBtn">Add</button>
+    </div>
+  </section>
+  <footer>
+    <p>Copyright ©️ 2022 Mavericks & Imran</p>
+  </footer>
+
 </body>
 
 </html>
