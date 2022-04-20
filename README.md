@@ -11,6 +11,9 @@
 - [x] Linters: Lighthouse, Webhint, Stylelint and ESlint
 - [x] VS Code
 
+## Screenshots 📸
+Screenshots can be found in the repository.
+
 ## Live Demo 🔗
 
 Click [here](https://mavericks-db.github.io/awesome-books/)👈

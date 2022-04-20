@@ -108,6 +108,14 @@ const setTime = () => {
 
 setInterval(setTime, 1000);
 
+// Add Enter Keyboard Support
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    addBtn.click();
+  }
+});
+
 // Link Interaction
 const listBtn = document.querySelector('#listBtn');
 const addNewBtn = document.querySelector('#addNewBtn');
