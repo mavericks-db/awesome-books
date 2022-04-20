@@ -11,6 +11,9 @@
 - [x] Linters: Lighthouse, Webhint, Stylelint and ESlint
 - [x] VS Code
 
+## Website Mockup 📱 💻 🖥️
+![all-devices-black](https://user-images.githubusercontent.com/98527559/164190627-0d992ad4-c0f1-4cc2-ada0-15155b2ae484.png)
+
 ## Screenshots 📸
 Screenshots can be found in the repository.
 
