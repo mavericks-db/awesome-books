@@ -41,9 +41,13 @@ class BookObject {
       const key = e.target.id;
       div[e.target.id].remove();
       localStorage.removeItem(key);
+      if (collection.innerHTML === '') {
+        collection.style.border = 'none';
+      }
     });
     div[id].append(pText, remBtn[id]);
     collection.appendChild(div[id]);
+    collection.style.border = '3px solid black';
   }
 
   static storeLS(book, id) {
@@ -72,6 +76,9 @@ addBtn.addEventListener('click', () => {
 
 window.onload = function reset() {
   BookObject.displayBooks();
+  if (collection.innerHTML === '') {
+    collection.style.border = 'none';
+  }
 };
 
 // Date Info
@@ -101,7 +108,6 @@ const setTime = () => {
 
 setInterval(setTime, 1000);
 
-
 // Link Interaction
 const listBtn = document.querySelector('#listBtn');
 const addNewBtn = document.querySelector('#addNewBtn');
@@ -111,9 +117,7 @@ const listSec = document.querySelector('.list');
 const addNewSec = document.querySelector('.addNew');
 const contactSec = document.querySelector('.contact');
 
-
 listBtn.addEventListener('click', () => {
-  console.log('hi');
   listSec.style.display = 'block';
   addNewSec.style.display = 'none';
   contactSec.style.display = 'none';
