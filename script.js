@@ -62,7 +62,7 @@ class BookObject {
 
 // Add Button Event
 addBtn.addEventListener('click', () => {
-  if (title === '' || author === '') {
+  if (title.value === '' || author.value === '') {
     alert('Please fill in all fields');
   } else {
     BookObject.addBook(title.value, author.value, id);
@@ -79,6 +79,7 @@ window.onload = function reset() {
   if (collection.innerHTML === '') {
     collection.style.border = 'none';
   }
+  
 };
 
 // Date Info
@@ -134,3 +135,4 @@ contactBtn.addEventListener('click', () => {
   addNewSec.style.display = 'none';
   contactSec.style.display = 'flex';
 });
+
