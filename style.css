@@ -50,6 +50,10 @@ nav ul li {
   cursor: pointer;
 }
 
+.active {
+  color: blue;
+}
+
 .date {
   display: flex;
   flex-direction: row;
