@@ -79,7 +79,6 @@ window.onload = function reset() {
   if (collection.innerHTML === '') {
     collection.style.border = 'none';
   }
-  
 };
 
 // Date Info
@@ -135,4 +134,3 @@ contactBtn.addEventListener('click', () => {
   addNewSec.style.display = 'none';
   contactSec.style.display = 'flex';
 });
-
