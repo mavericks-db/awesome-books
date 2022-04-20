@@ -41,9 +41,13 @@ class BookObject {
       const key = e.target.id;
       div[e.target.id].remove();
       localStorage.removeItem(key);
+      if (collection.innerHTML === '') {
+        collection.style.border = 'none';
+      }
     });
     div[id].append(pText, remBtn[id]);
     collection.appendChild(div[id]);
+    collection.style.border = '3px solid black';
   }
 
   static storeLS(book, id) {
@@ -58,7 +62,7 @@ class BookObject {
 
 // Add Button Event
 addBtn.addEventListener('click', () => {
-  if (title === '' || author === '') {
+  if (title.value === '' || author.value === '') {
     alert('Please fill in all fields');
   } else {
     BookObject.addBook(title.value, author.value, id);
@@ -72,4 +76,61 @@ addBtn.addEventListener('click', () => {
 
 window.onload = function reset() {
   BookObject.displayBooks();
+  if (collection.innerHTML === '') {
+    collection.style.border = 'none';
+  }
 };
+
+// Date Info
+const date = document.querySelector('.date');
+const setTime = () => {
+  const dateNow = new Date();
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const month = months[dateNow.getMonth()];
+  const day = dateNow.getDate();
+  const year = dateNow.getFullYear();
+
+  let minutes = dateNow.getMinutes();
+  const hours = dateNow.getHours();
+  let seconds = dateNow.getSeconds();
+
+  if (seconds.toString().length < 2) {
+    seconds = `0${seconds}`;
+  }
+  if (minutes.toString().length < 2) {
+    minutes = `0${minutes}`;
+  }
+  const amPm = hours >= 12 ? 'pm' : 'am';
+  const time = `${month} ${day}th ${year}, ${hours}:${minutes}:${seconds} ${amPm}`;
+  date.textContent = '';
+  date.textContent = `${time}`;
+};
+
+setInterval(setTime, 1000);
+
+// Link Interaction
+const listBtn = document.querySelector('#listBtn');
+const addNewBtn = document.querySelector('#addNewBtn');
+const contactBtn = document.querySelector('#contactBtn');
+
+const listSec = document.querySelector('.list');
+const addNewSec = document.querySelector('.addNew');
+const contactSec = document.querySelector('.contact');
+
+listBtn.addEventListener('click', () => {
+  listSec.style.display = 'block';
+  addNewSec.style.display = 'none';
+  contactSec.style.display = 'none';
+});
+
+addNewBtn.addEventListener('click', () => {
+  listSec.style.display = 'none';
+  addNewSec.style.display = 'block';
+  contactSec.style.display = 'none';
+});
+
+contactBtn.addEventListener('click', () => {
+  listSec.style.display = 'none';
+  addNewSec.style.display = 'none';
+  contactSec.style.display = 'flex';
+});

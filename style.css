@@ -1,17 +1,64 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-* {
-  box-sizing: border-box;
-  font-family: sans-serif;
-  font-weight: 700;
+/* Header Section */
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 3px solid black;
+  padding: 0.5rem;
+  width: 90%;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+}
+
+nav ul li {
+  list-style-type: none;
+  margin-left: 1rem;
+}
+
+.linkBtn {
+  text-decoration: none;
+  color: black;
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.date {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 90%;
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 1.5rem;
 }
 
 button {
@@ -25,9 +72,20 @@ input {
   border: 3px solid black;
 }
 
-.collection {
-  width: 500px;
-  border: 3px solid black;
+/* List Section */
+.list {
+  display: block;
+  width: 90%;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.list h2 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
 }
 
 .collection div {
@@ -58,12 +116,67 @@ input {
   background-color: black;
 }
 
+/* Add New Section */
+.addNew {
+  display: none;
+  width: 40%;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.addNew h2 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
 .book-input {
-  width: 300px;
   display: flex;
   flex-direction: column;
 }
 
+.book-input input {
+  padding: 1rem;
+}
+
 #addBtn {
   margin-left: auto;
+  padding: 0.5rem;
+}
+
+/* Contact Section */
+.contact {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: 1rem;
+}
+
+.contact h2 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.contact p,
+.contact ul {
+  text-align: left;
+  line-height: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.contact ul {
+  margin-left: 3rem;
+}
+
+/* Footer Section */
+footer {
+  width: 90%;
+  border: 3px solid black;
+  padding: 0.5rem;
+  position: fixed;
+  bottom: 0;
 }
