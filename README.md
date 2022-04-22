@@ -19,7 +19,7 @@ Screenshots can be found in the repository.
 
 ## Live Demo 🔗
 
-Click [here](https://mavericks-db.github.io/awesome-books/)👈
+Check out the live demo [here](https://mavericks-db.github.io/awesome-books/)👈
 
 ## Getting Started
 
